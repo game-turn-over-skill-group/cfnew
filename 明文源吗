@@ -51,7 +51,7 @@ const 配置默认值 = {
   ev: 'yes',
   et: 'no',
   ex: 'no',
-  ech: 'no',
+  ech: 'yes',
   tp: '',
   customDNS: 'https://223.5.5.5/dns-query',
   customECHDomain: 'cloudflare-ech.com',
@@ -72,7 +72,7 @@ const 配置默认值 = {
   qj: '',
   dkby: 'no',
   yxby: '',
-  ipv4: 'yes',
+  ipv4: 'no',
   ipv6: 'yes',
   ispMobile: 'yes',
   ispUnicom: 'yes',
@@ -1709,7 +1709,7 @@ function 解析链接值值节点(链接652) {
       const 参数646 = new URLSearchParams(网址651.search);
       const 传输层安全645 = 参数646.get('security') === 'tls' || 参数646.get('tls') === 'true';
       const 本地值644 = 参数646.get('type') || 'ws';
-      const 路径643 = 参数646.get('path') || '/?ed=2048';
+      const 路径643 = 参数646.get('path') || '/';
       const 主机642 = 参数646.get('host') || 本地值648;
       const 本地值641 = 参数646.get('sni') || 主机642;
       const 应用层协议协商原始640 = 参数646.get('alpn') || '';
@@ -1757,7 +1757,7 @@ function 解析链接值值节点(链接652) {
       const 端口630 = parseInt(网址634.port) || 443;
       const 参数629 = new URLSearchParams(网址634.search);
       const 本地值628 = 参数629.get('type') || 'ws';
-      const 路径 = 参数629.get('path') || '/?ed=2048';
+      const 路径 = 参数629.get('path') || '/';
       const 主机627 = 参数629.get('host') || 本地值631;
       const 服务名称指示626 = 参数629.get('sni') || 主机627;
       const 应用层协议协商原始 = 参数629.get('alpn') || '';
@@ -1863,7 +1863,7 @@ function 解析值链接(链接603) {
         port: parseInt(网址602.port) || 443,
         tls: 参数值601.get('security') === 'tls' || 参数值601.get('security') === 解码64('cmVhbGl0eQ=='),
         network: 参数值601.get('type') || 'ws',
-        path: 参数值601.get('path') || '/?ed=2048',
+        path: 参数值601.get('path') || '/',
         host: 规范化值主机(参数值601.get('host') || 网址602.hostname),
         sni: 规范化值主机(参数值601.get('sni') || 参数值601.get('host') || 网址602.hostname),
         alpn: (参数值601.get('alpn') || '').split(',').map(字符串值600 => 字符串值600.trim()).filter(Boolean),
@@ -1885,7 +1885,7 @@ function 解析值链接(链接603) {
         port: parseInt(网址599.port) || 443,
         tls: true,
         network: 参数值.get('type') || 'ws',
-        path: 参数值.get('path') || '/?ed=2048',
+        path: 参数值.get('path') || '/',
         host: 规范化值主机(参数值.get('host') || 网址599.hostname),
         sni: 规范化值主机(参数值.get('sni') || 参数值.get('host') || 网址599.hostname),
         alpn: (参数值.get('alpn') || '').split(',').map(字符串值598 => 字符串值598.trim()).filter(Boolean),
@@ -2857,7 +2857,7 @@ function 生成链接列表来源源(列表482, 用户481, 工作器域名480, �
   const 默认安全超文本值474 = [443];
   const 默认超文本值473 = 禁用非传输层安全 ? [] : [80];
   const 链接列表472 = [];
-  const 网页套接字路径471 = '/?ed=2048';
+  const 网页套接字路径471 = '/';
   const 协议470 = atob('dmxlc3M=');
   const 制作节点名称469 = 别名命名器477 || 创建值节点命名器(跳过编号478);
   for (const 项目468 of 列表482) {
@@ -2941,7 +2941,7 @@ async function 生成木马链接列表来源源(列表455, 用户454, 工作器
   const 默认安全超文本值 = [443];
   const 默认超文本值 = 禁用非传输层安全 ? [] : [80];
   const 链接列表447 = [];
-  const 网页套接字路径446 = '/?ed=2048';
+  const 网页套接字路径446 = '/';
   const 密码445 = 传输路径 || 用户454;
   const 制作节点名称444 = 别名命名器450 || 创建值节点命名器(跳过编号451);
   for (const 项目443 of 列表455) {
@@ -8357,7 +8357,7 @@ function 生成链接列表来源新地址列表(列表100, 用户99, 工作器�
   const 云墙超文本端口94 = [80, 8080, 8880, 2052, 2082, 2086, 2095];
   const 云墙安全超文本端口93 = [443, 2053, 2083, 2087, 2096, 8443];
   const 链接列表92 = [];
-  const 网页套接字路径91 = '/?ed=2048';
+  const 网页套接字路径91 = '/';
   const 协议 = atob('dmxlc3M=');
   const 制作节点名称90 = 别名命名器95 || 创建值节点命名器(跳过编号96);
   for (const 项目89 of 列表100) {
@@ -8401,8 +8401,24 @@ function 生成链接列表来源新地址列表(列表100, 用户99, 工作器�
 }
 function 生成扩展超文本链接列表来源源(列表76, 用户75, 工作器域名74, 加密客户端问候配置73 = null, 跳过编号72 = false, 别名命名器71 = null) {
   const 链接列表70 = [];
-  const 节点路径 = 用户75.substring(0, 8);
+  const 节点路径 = 'api';   // 根据你之前的需求改为 'api'
+  //const 节点路径 = 用户75.substring(0, 8);
   const 制作节点名称69 = 别名命名器71 || 创建值节点命名器(跳过编号72);
+
+  // ✅ 定义默认流控配置
+  const 默认流控 = {
+    "xPaddingBytes": "100-1000",
+    "xmux": {
+      "cMaxReuseTimes": 0,
+      "hKeepAlivePeriod": 0,
+      "hMaxRequestTimes": "600-900",
+      "hMaxReusableSecs": "1800-3000",
+      "maxConnections": "6"
+    }
+  };
+  // 转为 JSON 字符串并 URL 编码（客户端期望的是 URL 编码的 JSON）
+  const 额外参数值 = encodeURIComponent(JSON.stringify(默认流控));
+
   for (const 项目68 of 列表76) {
     const 安全地址67 = 项目68.ip.includes(':') ? `[${项目68.ip}]` : 项目68.ip;
     const 端口66 = 项目68.port || 443;
@@ -8417,6 +8433,10 @@ function 生成扩展超文本链接列表来源源(列表76, 用户75, 工作�
       path: `/${节点路径}`,
       mode: 'stream-one'
     });
+
+    // ✅ 添加 extra 参数（不是 xhttp）
+    参数.set('extra', 额外参数值);
+
     处理值应用层协议协商值(参数);
     if (启用加密客户端问候) {
       const 域名系统值64 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
@@ -8431,7 +8451,7 @@ async function 生成木马链接列表来源新地址列表(列表, 用户, 工
   const 云墙超文本端口 = [80, 8080, 8880, 2052, 2082, 2086, 2095];
   const 云墙安全超文本端口 = [443, 2053, 2083, 2087, 2096, 8443];
   const 链接列表 = [];
-  const 网页套接字路径 = '/?ed=2048';
+  const 网页套接字路径 = '/';
   const 密码 = 传输路径 || 用户;
   const 制作节点名称 = 别名命名器 || 创建值节点命名器(跳过编号);
   for (const 项目62 of 列表) {
